@@ -86,12 +86,13 @@ class p_vector			//p_vector (pseudo vector)
 			if(begin >0 && end<=size)
 			{
 				T* temp = new T[end-begin+1];
-				for(int i = 0, j = (begin-1);i<(end-begin+1);i++,j++)
+				for(int i = 0, j = begin;i<(end-begin+1);i++,j++)
 				{
 					temp[i]=value[j]; 
 				}
 				return temp;
 			}
+			std::cout<<"This is not a valid slice" <<std::endl;
 			return 0;
 		}
 //print function
@@ -130,8 +131,8 @@ int main()
 	std::cout<<"Min is: " <<arr.min() <<std::endl;
  	arr.print();
 	
-	int* slice = arr.slice(3,6);
-	int length = 6-3+1;
+	int* slice = arr.slice(2,4);
+	int length = 4-2+1;
 	std::cout<<"Printing the array slice" <<std::endl;
 	std::cout<<"------------------------" <<std::endl;
 	for(int i =0; i<length;i++)
